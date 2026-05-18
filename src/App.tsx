@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Layout from "./components/Layout/Layout";
 import Hero from './components/Hero/Hero';
+import Projects from './components/Projects/Projects';
 
 
 type Theme = "light" | "dark";
@@ -19,6 +20,7 @@ function App() {
   return (
     <Layout theme={theme} onToggleTheme={toggleTheme}>
       <Hero />
+      <Projects />
     </Layout>
   );
 }
