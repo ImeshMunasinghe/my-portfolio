@@ -1,26 +1,23 @@
-import { useState, useEffect } from 'react';
-import { RiSunLine, RiMoonLine } from 'react-icons/ri';
+import { useState, useEffect } from "react";
+import Layout from "./components/Layout/Layout";
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 function App() {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   return (
-    <div>
-      <button onClick={toggleTheme}>
-        {theme === 'light' ? <RiMoonLine /> : <RiSunLine />}
-      </button>
+    <Layout theme={theme} onToggleTheme={toggleTheme}>
       <h1>Hello, Portfolio</h1>
-    </div>
+    </Layout>
   );
 }
 
