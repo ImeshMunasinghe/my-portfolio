@@ -19,6 +19,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={styles.card}
+      aria-label={`${project.title} (opens in a new tab)`}
     >
       <div className={styles.top}>
         <span className={styles.title}>{project.title}</span>

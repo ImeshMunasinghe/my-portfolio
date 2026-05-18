@@ -16,6 +16,7 @@ function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
+            aria-label="GitHub (opens in a new tab)"
           >
             GitHub
           </a>
@@ -24,6 +25,7 @@ function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
+            aria-label="Medium (opens in a new tab)"
           >
             Medium
           </a>

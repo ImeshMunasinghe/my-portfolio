@@ -72,3 +72,54 @@
 .navLinkActive {
   color: var(--color-text-primary);
 }
+
+.mobileMenuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: var(--space-2);
+  margin-right: calc(var(--space-2) * -1); /* visually align to edge */
+  z-index: 101; /* Stay above the open menu */
+}
+
+@media (max-width: 640px) {
+  .mobileMenuButton {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-bg);
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-8);
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+    z-index: 100;
+  }
+
+  .navOpen {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navLink {
+    font-size: var(--text-2xl);
+  }
+
+  .themeToggle {
+    margin-top: var(--space-4);
+    transform: scale(1.5);
+  }
+}

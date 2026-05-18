@@ -38,14 +38,14 @@
 /*LIGHT THEME (default)*/
 
 [data-theme='light'] {
-  --color-bg:          #f9f9f7;
+  --color-bg:          #f0f4f8;
   --color-surface:     #ffffff;
-  --color-border:      #e8e8e4;
-  --color-text-primary:   #1a1a18;
-  --color-text-secondary: #6b6b63;
-  --color-text-muted:     #9a9a91;
-  --color-accent:      #2563eb;
-  --color-accent-hover:#1d4ed8;
+  --color-border:      #dce4ec;
+  --color-text-primary:   #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted:     #64748b;
+  --color-accent:      #1e40af;
+  --color-accent-hover:#1e3a8a;
 }
 
 /*DARK THEME */

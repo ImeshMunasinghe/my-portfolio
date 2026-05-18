@@ -1,6 +1,8 @@
 import styles from './About.module.css';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 function About() {
+  useDocumentTitle('About');
   return (
     <section className={styles.section}>
       <h2 className={styles.heading}>About</h2>
