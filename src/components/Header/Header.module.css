@@ -68,3 +68,7 @@
   border-color: var(--color-text-muted);
   background-color: var(--color-surface);
 }
+
+.navLinkActive {
+  color: var(--color-text-primary);
+}

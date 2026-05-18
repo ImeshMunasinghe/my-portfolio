@@ -1,8 +1,9 @@
-import { RiSunLine, RiMoonLine } from 'react-icons/ri';
-import styles from './Header.module.css';
+import { Link, NavLink } from "react-router-dom";
+import { RiSunLine, RiMoonLine } from "react-icons/ri";
+import styles from "./Header.module.css";
 
 interface HeaderProps {
-  theme: 'light' | 'dark';
+  theme: "light" | "dark";
   onToggleTheme: () => void;
 }
 
@@ -10,22 +11,45 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <a href="/" className={styles.logo}>
-          your.name
-        </a>
+        <Link to="/" className={styles.logo}>
+          your
+        </Link>
 
-        <nav className={styles.nav}>
-          <a href="#work" className={styles.navLink}>Work</a>
-          <a href="#writing" className={styles.navLink}>Writing</a>
-          <a href="#about" className={styles.navLink}>About</a>
-        </nav>
+        <NavLink
+          to="/work"
+          className={({ isActive }) =>
+            `${styles.navLink} ${isActive ? styles.navLinkActive : ""}`
+          }
+        >
+          Work
+        </NavLink>
+        <NavLink
+          to="/writing"
+          className={({ isActive }) =>
+            `${styles.navLink} ${isActive ? styles.navLinkActive : ""}`
+          }
+        >
+          Writing
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            `${styles.navLink} ${isActive ? styles.navLinkActive : ""}`
+          }
+        >
+          About
+        </NavLink>
 
         <button
           className={styles.themeToggle}
           onClick={onToggleTheme}
           aria-label="Toggle theme"
         >
-          {theme === 'light' ? <RiMoonLine size={18} /> : <RiSunLine size={18} />}
+          {theme === "light" ? (
+            <RiMoonLine size={18} />
+          ) : (
+            <RiSunLine size={18} />
+          )}
         </button>
       </div>
     </header>
