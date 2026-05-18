@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Layout from "./components/Layout/Layout";
+import Hero from './components/Hero/Hero';
+
 
 type Theme = "light" | "dark";
 
@@ -16,7 +18,7 @@ function App() {
 
   return (
     <Layout theme={theme} onToggleTheme={toggleTheme}>
-      <h1>Hello, Portfolio</h1>
+      <Hero />
     </Layout>
   );
 }
