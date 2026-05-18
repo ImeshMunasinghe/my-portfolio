@@ -4,17 +4,17 @@ import styles from './Footer.module.css';
 const socials = [
   {
     label: 'GitHub',
-    href: 'https://github.com/yourusername',
+    href: 'https://github.com/ImeshMunasinghe',
     icon: RiGithubLine,
   },
   {
     label: 'Medium',
-    href: 'https://medium.com/@yourusername',
+    href: 'https://medium.com/@ImeshM',
     icon: RiMediumLine,
   },
   {
     label: 'Email',
-    href: 'mailto:you@email.com',
+    href: 'mailto:imesh7lk@gmail.com',
     icon: RiMailLine,
   },
 ];
