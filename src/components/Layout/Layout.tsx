@@ -1,5 +1,6 @@
 import Header from "../Header/Header";
 import styles from "./Layout.module.css";
+import Footer from '../Footer/Footer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ function Layout({ children, theme, onToggleTheme }: LayoutProps) {
       <main className={styles.main}>
         <div className={styles.container}>{children}</div>
       </main>
+      <Footer />
     </div>
   );
 }

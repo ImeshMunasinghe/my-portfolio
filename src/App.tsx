@@ -5,6 +5,7 @@ import Projects from './components/Projects/Projects';
 import Writing from './components/Writing/Writing';
 
 
+
 type Theme = "light" | "dark";
 
 function App() {
