@@ -12,7 +12,7 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
-          your
+          Imesh Munasinghe
         </Link>
 
         <NavLink

@@ -1,12 +1,29 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout/Layout';
+import PageTransition from './components/PageTransition/PageTransition';
 import Home from './pages/Home';
 import Work from './pages/Work';
 import WritingPage from './pages/WritingPage';
 import About from './pages/About';
 
 type Theme = 'light' | 'dark';
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/work" element={<PageTransition><Work /></PageTransition>} />
+        <Route path="/writing" element={<PageTransition><WritingPage /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -26,12 +43,7 @@ function App() {
   return (
     <BrowserRouter>
       <Layout theme={theme} onToggleTheme={toggleTheme}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/writing" element={<WritingPage />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <AnimatedRoutes />
       </Layout>
     </BrowserRouter>
   );

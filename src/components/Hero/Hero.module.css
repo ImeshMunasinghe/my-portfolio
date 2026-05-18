@@ -1,6 +1,5 @@
 .hero {
   padding: var(--space-24) 0 var(--space-16);
-  animation: fadeUp 0.6s ease both;
 }
 
 .eyebrow {
