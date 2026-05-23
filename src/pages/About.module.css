@@ -1,21 +1,110 @@
 .section {
   padding: var(--space-16) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-12);
 }
 
 .heading {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-8);
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+  text-align: center;
 }
 
 .bio {
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   color: var(--color-text-secondary);
   line-height: 1.8;
-  max-width: 520px;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.cardIcon {
+  color: var(--color-text-primary);
+}
+
+.cardTitle {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.itemIconPlaceholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.itemTitle {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.itemSubtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: var(--text-3xl);
+  }
+
+  .bio {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @keyframes fadeUp {
@@ -23,6 +112,7 @@
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

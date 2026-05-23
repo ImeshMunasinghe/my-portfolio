@@ -1,30 +1,112 @@
 .section {
   padding: var(--space-16) 0;
-  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-12);
 }
 
 .heading {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-8);
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
+.subtitle {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+.carouselContainer {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-4);
+  position: relative;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+.carouselViewport {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cardWrapper {
+  width: 100%;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), opacity var(--transition-fast);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.carouselContainer:hover .arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.arrow:hover {
+  background-color: var(--color-border);
+  transform: scale(1.1);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.dot:hover {
+  background-color: var(--color-text-muted);
+}
+
+.activeDot {
+  background-color: var(--color-text-primary);
+  transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: var(--text-3xl);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .subtitle {
+    font-size: var(--text-sm);
+  }
+  .arrow {
+    display: none;
   }
 }

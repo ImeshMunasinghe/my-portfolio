@@ -1,49 +1,45 @@
+import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
-import avatar from '../../assets/avatar.jpg';
+import avatar from '../../assets/avatar.png';
 
 function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.content}>
-        <div className={styles.eyebrow}>Available for work</div>
+      <motion.div
+        className={styles.content}
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
+        <div className={styles.subtitle}>Undergraduate at University of Moratuwa</div>
         <h1 className={styles.name}>Imesh Munasinghe</h1>
         <p className={styles.role}>
-          Software Engineer & lifelong learner building thoughtful digital experiences.
+          I'm a self-driven IT undergraduate passionate about software engineering, quick to learn new technologies, and eager to take on real-world challenges.
         </p>
-        <div className={styles.links}>
+        <div className={styles.actions}>
           <a
-            href="https://github.com/yourusername"
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.link}
-            aria-label="GitHub (opens in a new tab)"
+            className={styles.button}
           >
-            GitHub
-          </a>
-          <a
-            href="https://medium.com/@yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.link}
-            aria-label="Medium (opens in a new tab)"
-          >
-            Medium
-          </a>
-          <a
-            href="mailto:you@email.com"
-            className={styles.link}
-          >
-            Email
+            View My Resume
           </a>
         </div>
-      </div>
-      <div className={styles.imageWrapper}>
+      </motion.div>
+      <motion.div
+        className={styles.imageWrapper}
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+      >
         <img
           src={avatar}
-          alt="Your Name"
+          alt="Imesh Munasinghe"
           className={styles.avatar}
+          loading="lazy"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }

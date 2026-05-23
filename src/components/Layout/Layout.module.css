@@ -6,7 +6,7 @@
 
 .main {
   flex: 1;
-  padding: var(--space-16) var(--space-4);
+  /* Sections will handle their own padding to snap properly */
 }
 
 .container {

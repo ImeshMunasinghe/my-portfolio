@@ -1,7 +1,17 @@
-import { RiGithubLine, RiMediumLine, RiMailLine } from 'react-icons/ri';
+import { RiGithubLine, RiMediumLine, RiMailLine, RiLinkedinLine } from 'react-icons/ri';
 import styles from './Footer.module.css';
 
 const socials = [
+  {
+    label: 'Email',
+    href: 'mailto:imesh7lk@gmail.com',
+    icon: RiMailLine,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/ImeshMunasinghe',
+    icon: RiLinkedinLine,
+  },
   {
     label: 'GitHub',
     href: 'https://github.com/ImeshMunasinghe',
@@ -12,17 +22,16 @@ const socials = [
     href: 'https://medium.com/@ImeshM',
     icon: RiMediumLine,
   },
-  {
-    label: 'Email',
-    href: 'mailto:imesh7lk@gmail.com',
-    icon: RiMailLine,
-  },
 ];
 
 function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
+        <div className={styles.copy}>
+          <p>Copyright &copy; {new Date().getFullYear()} Imesh</p>
+          <p>All Rights Reserved.</p>
+        </div>
         <div className={styles.socials}>
           {socials.map(({ label, href, icon: Icon }) => (
             <a
@@ -33,13 +42,10 @@ function Footer() {
               aria-label={label}
               className={styles.socialLink}
             >
-              <Icon size={18} />
+              <Icon size={20} />
             </a>
           ))}
         </div>
-        <p className={styles.copy}>
-          &copy; {new Date().getFullYear()} Imesh Munasinghe. Built with React & Vite.
-        </p>
       </div>
     </footer>
   );

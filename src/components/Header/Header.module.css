@@ -3,10 +3,8 @@
   top: 0;
   z-index: 100;
   background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
   transition:
-    background-color var(--transition-slow),
-    border-color var(--transition-slow);
+    background-color var(--transition-slow);
 }
 
 .container {
@@ -18,12 +16,30 @@
   justify-content: space-between;
 }
 
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .logo {
-  font-size: var(--text-base);
-  font-weight: 600;
+  font-size: var(--text-xl);
   color: var(--color-text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
   transition: color var(--transition-fast);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logoBold {
+  font-weight: 800;
+}
+
+.tagline {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
 }
 
 .logo:hover {
@@ -34,6 +50,8 @@
   display: flex;
   align-items: center;
   gap: var(--space-6);
+  margin-left: auto;
+  margin-right: var(--space-6);
 }
 
 .navLink {
@@ -41,26 +59,37 @@
   font-weight: 500;
   color: var(--color-text-secondary);
   transition: color var(--transition-fast);
+  position: relative;
+  padding: 4px 0;
 }
 
-.navLink:hover {
+.navLink:hover, .activeNavLink {
   color: var(--color-text-primary);
+}
+
+.activeNavLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent);
 }
 
 .themeToggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  color: var(--color-text-secondary);
-  padding: var(--space-2);
+  background: var(--color-text-primary);
+  border: none;
+  border-radius: 50%;
+  color: var(--color-surface);
+  padding: var(--space-3);
   cursor: pointer;
   transition:
-    color var(--transition-fast),
-    border-color var(--transition-fast),
-    background-color var(--transition-fast);
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .themeToggle:hover {
@@ -73,8 +102,14 @@
   color: var(--color-text-primary);
 }
 
-.mobileMenuButton {
+.mobileRight {
   display: none;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.mobileMenuButton {
+  display: flex;
   align-items: center;
   justify-content: center;
   background: none;
@@ -82,44 +117,53 @@
   color: var(--color-text-primary);
   cursor: pointer;
   padding: var(--space-2);
-  margin-right: calc(var(--space-2) * -1); /* visually align to edge */
-  z-index: 101; /* Stay above the open menu */
+  z-index: 101;
 }
 
-@media (max-width: 640px) {
-  .mobileMenuButton {
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
+
+  .mobileRight {
     display: flex;
   }
-
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--color-bg);
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--space-8);
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform var(--transition-base), opacity var(--transition-base);
-    z-index: 100;
-  }
-
-  .navOpen {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .navLink {
-    font-size: var(--text-2xl);
-  }
-
-  .themeToggle {
-    margin-top: var(--space-4);
-    transform: scale(1.5);
-  }
 }
+
+/* Mobile full-screen overlay menu */
+.mobileNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.mobileNavOpen {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileNavLink {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.03em;
+  transition: color var(--transition-fast);
+}
+
+.mobileNavLink:hover {
+  color: var(--color-accent);
+}
