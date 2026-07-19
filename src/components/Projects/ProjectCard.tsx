@@ -7,6 +7,7 @@ interface Project {
   stack: string[];
   href: string;
   liveHref?: string;
+  image?: string;
 }
 
 interface ProjectCardProps {
@@ -17,9 +18,13 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.imageBlock}>
-        <div className={styles.imagePlaceholder}>
-          <span className={styles.imageText}>Image Placeholder</span>
-        </div>
+        {project.image ? (
+          <img src={project.image} alt={project.title} className={styles.image} />
+        ) : (
+          <div className={styles.imagePlaceholder}>
+            <span className={styles.imageText}>Image Placeholder</span>
+          </div>
+        )}
       </div>
       <div className={styles.contentBlock}>
         <h3 className={styles.title}>{project.title}</h3>
