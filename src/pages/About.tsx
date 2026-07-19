@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import { RiBookOpenLine, RiTeamLine } from 'react-icons/ri';
 import styles from './About.module.css';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import Skills from '../components/Skills/Skills';
+import Timeline from '../components/Timeline/Timeline';
+import Certifications from '../components/Certifications/Certifications';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -42,81 +43,25 @@ function About() {
         When I’m not coding, you’ll probably find me exploring cloud foundations on AWS or experimenting with open-source automation tools.
       </motion.p>
 
-      <div className={styles.grid}>
-        <motion.div
-          className={styles.card}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          custom={2}
-          viewport={{ once: true }}
-        >
-          <div className={styles.cardHeader}>
-            <RiBookOpenLine size={24} className={styles.cardIcon} />
-            <h3 className={styles.cardTitle}>Education</h3>
-          </div>
-          <ul className={styles.list}>
-            <li className={styles.listItem}>
-              <div className={styles.itemIconPlaceholder}></div>
-              <div>
-                <div className={styles.itemTitle}>B.Sc. (Hons.) in Information Technology</div>
-                <div className={styles.itemSubtitle}>University of Moratuwa</div>
-              </div>
-            </li>
-            <li className={styles.listItem}>
-              <div className={styles.itemIconPlaceholder}></div>
-              <div>
-                <div className={styles.itemTitle}>G.C.E. Advanced Level</div>
-                <div className={styles.itemSubtitle}>Ruhunu Vijayaba College</div>
-              </div>
-            </li>
-            <li className={styles.listItem}>
-              <div className={styles.itemIconPlaceholder}></div>
-              <div>
-                <div className={styles.itemTitle}>G.C.E. Ordinary Level</div>
-                <div className={styles.itemSubtitle}>Ruhunu Vijayaba College</div>
-              </div>
-            </li>
-          </ul>
-        </motion.div>
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        custom={2}
+        viewport={{ once: true }}
+      >
+        <Timeline />
+      </motion.div>
 
-        <motion.div
-          className={styles.card}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          custom={3}
-          viewport={{ once: true }}
-        >
-          <div className={styles.cardHeader}>
-            <RiTeamLine size={24} className={styles.cardIcon} />
-            <h3 className={styles.cardTitle}>Experience</h3>
-          </div>
-          <ul className={styles.list}>
-            <li className={styles.listItem}>
-              <div className={styles.itemIconPlaceholder}></div>
-              <div>
-                <div className={styles.itemTitle}>Assistant Secretary</div>
-                <div className={styles.itemSubtitle}>INTECS University of Moratuwa</div>
-              </div>
-            </li>
-            <li className={styles.listItem}>
-              <div className={styles.itemIconPlaceholder}></div>
-              <div>
-                <div className={styles.itemTitle}>Team Lead - Editorial Committee</div>
-                <div className={styles.itemSubtitle}>IEEE Student Branch University of Moratuwa</div>
-              </div>
-            </li>
-            <li className={styles.listItem}>
-              <div className={styles.itemIconPlaceholder}></div>
-              <div>
-                <div className={styles.itemTitle}>Senior Editor</div>
-                <div className={styles.itemSubtitle}>Mora Hiking Club - UOM</div>
-              </div>
-            </li>
-          </ul>
-        </motion.div>
-      </div>
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        custom={3}
+        viewport={{ once: true }}
+      >
+        <Skills />
+      </motion.div>
 
       <motion.div
         variants={fadeUp}
@@ -125,7 +70,7 @@ function About() {
         custom={4}
         viewport={{ once: true }}
       >
-        <Skills />
+        <Certifications />
       </motion.div>
     </section>
   );

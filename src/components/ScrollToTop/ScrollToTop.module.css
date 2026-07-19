@@ -1,0 +1,32 @@
+.button {
+  position: fixed;
+  bottom: 6rem; /* above the fixed footer */
+  right: 1.75rem;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-text-primary);
+  color: var(--color-surface);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: background-color var(--transition-fast);
+}
+
+.button:hover {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .button {
+    bottom: 5rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+}

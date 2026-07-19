@@ -1,0 +1,28 @@
+.spotlight {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle closest-side,
+    rgba(96, 165, 250, 0.06) 0%,
+    rgba(96, 165, 250, 0.03) 40%,
+    transparent 100%
+  );
+  transition: left 0.08s ease-out, top 0.08s ease-out;
+  mix-blend-mode: screen;
+  will-change: left, top;
+}
+
+[data-theme='light'] .spotlight {
+  background: radial-gradient(
+    circle closest-side,
+    rgba(30, 64, 175, 0.12) 0%,
+    rgba(30, 64, 175, 0.06) 40%,
+    transparent 100%
+  );
+  mix-blend-mode: multiply;
+}
