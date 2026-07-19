@@ -6,17 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Imesh Munasinghe • Portfolio</title>
     <meta name="description" content="Imesh Munasinghe's professional portfolio showcasing web development projects, skills, and contact information.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://imeshmunasinghe.com" />
     <meta property="og:title" content="Imesh Munasinghe • Portfolio" />
     <meta property="og:description" content="Explore the work and skills of Imesh, a passionate IT undergraduate and developer." />
     <meta property="og:image" content="/icons.svg" />
-    <meta property="og:url" content="https://yourdomain.com" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://imeshmunasinghe.com" />
+    <meta name="twitter:title" content="Imesh Munasinghe • Portfolio" />
+    <meta name="twitter:description" content="Explore the work and skills of Imesh, a passionate IT undergraduate and developer." />
+    <meta name="twitter:image" content="/icons.svg" />
+
+    <!-- SEO & PWA -->
+    <link rel="canonical" href="https://imeshmunasinghe.com" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#1e40af" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Google tag (gtag.js) -->
+    <!-- TODO: Replace G-XXXXXXXXXX with actual Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Imesh Munasinghe",
+      "url": "https://imeshmunasinghe.com",
+      "image": "https://imeshmunasinghe.com/icons.svg",
+      "sameAs": [
+        "https://linkedin.com/in/ImeshMunasinghe",
+        "https://github.com/ImeshMunasinghe",
+        "https://medium.com/@ImeshM"
+      ],
+      "jobTitle": "Full-Stack Developer",
+      "alumniOf": "University of Moratuwa"
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

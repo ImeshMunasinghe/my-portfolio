@@ -1,0 +1,24 @@
+{
+  "name": "Imesh Munasinghe • Portfolio",
+  "short_name": "Imesh",
+  "description": "Imesh Munasinghe's professional portfolio showcasing web development projects, skills, and contact information.",
+  "theme_color": "#1e40af",
+  "background_color": "#f0f4f8",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "orientation": "portrait-primary"
+}
