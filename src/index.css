@@ -80,9 +80,6 @@ html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   scroll-padding-top: 80px; /* Offset for sticky header */
-  transition:
-    background-color var(--transition-slow),
-    color var(--transition-slow);
 }
 
 body {
@@ -92,6 +89,9 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
+  transition:
+    background-color var(--transition-slow),
+    color var(--transition-slow);
 }
 
 a {
@@ -119,4 +119,15 @@ img[loading="lazy"] {
 img[loading="lazy"].loaded,
 img[loading="lazy"]:not([src=""]) {
   opacity: 1;
+}
+
+/* Theme based image toggles */
+[data-theme='light'] .theme-avatar-dark {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+[data-theme='dark'] .theme-avatar-light {
+  opacity: 0 !important;
+  pointer-events: none;
 }

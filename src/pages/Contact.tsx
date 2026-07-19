@@ -6,9 +6,9 @@ import styles from './Contact.module.css';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 // ⚠️ Replace these with your actual EmailJS credentials from https://emailjs.com
-const EMAILJS_SERVICE_ID = 'service_tw5nk6h';
-const EMAILJS_TEMPLATE_ID = 'template_bcmoi3v';
-const EMAILJS_PUBLIC_KEY = '3PYjEYGLPTjTRw3ah';
+const EMAILJS_SERVICE_ID = 'service_simy5fi';
+const EMAILJS_TEMPLATE_ID = 'template_pho2y1g';
+const EMAILJS_PUBLIC_KEY = 'gZ4PYqGElOpagXuKu';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
