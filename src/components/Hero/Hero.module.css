@@ -32,7 +32,40 @@
   font-size: var(--text-base);
   color: var(--color-text-secondary);
   line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+
+.typewriterWrapper {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
   margin-bottom: var(--space-8);
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.typewriterPrefix {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.typewriterText {
+  color: var(--color-accent);
+}
+
+.cursor {
+  color: var(--color-accent);
+  font-weight: 300;
+  animation: blink 1s step-end infinite;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .actions {
@@ -58,10 +91,11 @@
 
 .imageWrapper {
   flex-shrink: 0;
-  width: 400px;
-  height: 400px;
+  width: 480px;
+  height: 480px;
   border-radius: 50%;
   background-color: #1a2438; /* Dark navy background */
+  position: relative; /* Added for absolute child positioning */
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -70,12 +104,18 @@
 }
 
 .avatar {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   border-radius: 0;
   border: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: opacity var(--transition-slow);
 }
+
+
 
 /* ============================================
    RESPONSIVE
@@ -107,7 +147,7 @@
   }
 
   .imageWrapper {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
   }
 }
