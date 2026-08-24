@@ -5,6 +5,8 @@ import Layout from './components/Layout/Layout';
 import PageTransition from './components/PageTransition/PageTransition';
 import Loader from './components/Loader/Loader';
 import Home from './pages/Home';
+import AllProjects from './pages/AllProjects';
+import AllWriting from './pages/AllWriting';
 import NotFound from './pages/NotFound';
 
 type Theme = 'light' | 'dark';
@@ -16,6 +18,8 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/projects" element={<PageTransition><AllProjects /></PageTransition>} />
+        <Route path="/writing" element={<PageTransition><AllWriting /></PageTransition>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
