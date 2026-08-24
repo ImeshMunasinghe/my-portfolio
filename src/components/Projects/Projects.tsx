@@ -1,37 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
+import { projects } from '../../data/projects';
 import ProjectCard from './ProjectCard';
-import type { Project } from './ProjectCard';
 import styles from './Projects.module.css';
-import p1Img from '../../assets/p1.png';
-import p3Img from '../../assets/p3.png';
-
-const projects: Project[] = [
-  {
-    title: 'MedicareX',
-    description: 'A modern healthcare platform developed under SoftwareProjectInnovateX.',
-    stack: ['React', 'Nest.js', 'Firebase'],
-    href: 'https://github.com/SoftwareProjectInnovateX',
-    liveHref: '',
-    image: p1Img,
-  },
-  {
-    title: 'Project Two',
-    description: 'Another project description. Keep it to two sentences max — clarity over completeness.',
-    stack: ['Python', 'FastAPI', 'PostgreSQL'],
-    href: 'https://github.com/yourusername',
-    liveHref: 'https://yourlivedemo.com',
-  },
-  {
-    title: 'Personal Developer Portfolio',
-    description: 'A modern, highly interactive personal portfolio built from scratch. Features smooth micro-animations, a responsive design system, and custom carousel components.',
-    stack: ['React', 'TypeScript', 'Vite', 'Framer Motion'],
-    href: 'https://github.com/ImeshMunasinghe/my-portfolio',
-    liveHref: '',
-    image: p3Img,
-  }
-];
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -122,6 +95,10 @@ function Projects() {
           />
         ))}
       </div>
+
+      <Link to="/projects" className={styles.moreLink}>
+        View More Projects &rarr;
+      </Link>
     </section>
   );
 }
