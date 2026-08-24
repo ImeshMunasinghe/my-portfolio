@@ -8,6 +8,7 @@ import {
   RiFirebaseLine,
   RiJavaLine,
   RiCloudLine,
+  RiDatabaseLine,
 } from 'react-icons/ri';
 import {
   SiNestjs,
@@ -16,6 +17,16 @@ import {
   SiMongodb,
   SiPostgresql,
   SiPython,
+  SiTypescript,
+  SiSpringboot,
+  SiNextdotjs,
+  SiMysql,
+  SiDocker,
+  SiPostman,
+  SiCucumber,
+  SiGithub,
+  SiSwagger,
+  SiJira,
 } from 'react-icons/si';
 import styles from './Skills.module.css';
 
@@ -31,40 +42,74 @@ interface SkillCategory {
 
 const categories: SkillCategory[] = [
   {
-    name: 'Frontend',
+    name: 'Languages',
     skills: [
-      { icon: <RiReactjsLine size={28} />, label: 'React' },
-      { icon: <RiHtml5Line size={28} />, label: 'HTML5' },
-      { icon: <RiCss3Line size={28} />, label: 'CSS3' },
-      { icon: <SiTailwindcss size={28} />, label: 'Tailwind' },
+      { icon: <RiJavaLine size={28} />, label: 'Java' },
+      { icon: <SiTypescript size={28} />, label: 'TypeScript' },
       { icon: <SiJavascript size={28} />, label: 'JavaScript' },
+      { icon: <SiPython size={28} />, label: 'Python' },
+      { icon: <RiDatabaseLine size={28} />, label: 'SQL' },
+      {
+        icon: (
+          <span style={{ display: 'flex', gap: '2px' }}>
+            <RiHtml5Line size={20} />
+            <RiCss3Line size={20} />
+          </span>
+        ),
+        label: 'HTML/CSS',
+      },
     ],
   },
   {
     name: 'Backend',
     skills: [
       { icon: <SiNestjs size={28} />, label: 'NestJS' },
+      { icon: <SiSpringboot size={28} />, label: 'Spring Boot' },
       { icon: <RiNodejsLine size={28} />, label: 'Node.js' },
-      { icon: <SiPython size={28} />, label: 'Python' },
-      { icon: <RiJavaLine size={28} />, label: 'Java' },
     ],
   },
   {
-    name: 'Database & Cloud',
+    name: 'Frontend',
+    skills: [
+      { icon: <RiReactjsLine size={28} />, label: 'React' },
+      { icon: <SiNextdotjs size={28} />, label: 'Next.js' },
+      { icon: <SiTailwindcss size={28} />, label: 'Tailwind CSS' },
+    ],
+  },
+  {
+    name: 'Databases & Storage',
     skills: [
       { icon: <SiPostgresql size={28} />, label: 'PostgreSQL' },
+      { icon: <SiMysql size={28} />, label: 'MySQL' },
       { icon: <SiMongodb size={28} />, label: 'MongoDB' },
-      { icon: <RiFirebaseLine size={28} />, label: 'Firebase' },
-      { icon: <RiCloudLine size={28} />, label: 'AWS' },
+      { icon: <RiFirebaseLine size={28} />, label: 'Firebase (Firestore)' },
     ],
   },
   {
-    name: 'Tools',
+    name: 'DevOps & Cloud',
+    skills: [
+      { icon: <RiCloudLine size={28} />, label: 'AWS' },
+      { icon: <SiDocker size={28} />, label: 'Docker' },
+    ],
+  },
+  {
+    name: 'Testing',
+    skills: [
+      { icon: <SiPostman size={28} />, label: 'Postman' },
+      { icon: <SiCucumber size={28} />, label: 'Cucumber (BDD)' },
+    ],
+  },
+  {
+    name: 'Developer Tools',
     skills: [
       { icon: <RiGitBranchLine size={28} />, label: 'Git' },
+      { icon: <SiGithub size={28} />, label: 'GitHub' },
+      { icon: <SiSwagger size={28} />, label: 'Swagger / OpenAPI' },
+      { icon: <SiJira size={28} />, label: 'Jira' },
     ],
   },
 ];
+
 
 function Skills() {
   return (
