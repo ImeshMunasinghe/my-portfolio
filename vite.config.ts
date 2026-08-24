@@ -9,6 +9,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icons.svg'],
+      workbox: {
+        navigateFallbackDenylist: [/\.pdf$/]
+      },
       manifest: {
         name: 'Imesh Munasinghe • Portfolio',
         short_name: 'Imesh',
