@@ -2,6 +2,26 @@
   margin-top: var(--space-8);
 }
 
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.categoryLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 .title {
   font-size: var(--text-lg);
   font-weight: 700;
