@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
-import avatarDark from '../../assets/avaratrL1.png';
+import avatarDark from '../../assets/avaratrL.png';
 import avatarLight from '../../assets/avatartd1.png';
 
 const ROLES = [
@@ -58,6 +58,10 @@ function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
+        <div className={styles.badgeContainer}>
+          <span className={styles.pulseDot}></span>
+          <span className={styles.badgeText}>Available for Opportunities</span>
+        </div>
         <div className={styles.subtitle}>Undergraduate at University of Moratuwa</div>
         <h1 className={styles.name}>Imesh Munasinghe</h1>
         <div className={styles.typewriterWrapper}>
@@ -87,12 +91,14 @@ function Hero() {
           alt="Imesh Munasinghe"
           className={`${styles.avatar} theme-avatar-light`}
           loading="lazy"
+          onLoad={(e) => e.currentTarget.classList.add('loaded')}
         />
         <img
           src={avatarDark}
           alt="Imesh Munasinghe"
           className={`${styles.avatar} theme-avatar-dark`}
           loading="lazy"
+          onLoad={(e) => e.currentTarget.classList.add('loaded')}
         />
       </motion.div>
     </section>
