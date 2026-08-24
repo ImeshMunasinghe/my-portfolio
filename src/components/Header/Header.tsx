@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { RiSunLine, RiMoonLine, RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import styles from "./Header.module.css";
 
@@ -10,11 +11,18 @@ interface HeaderProps {
 function Header({ theme, onToggleTheme }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   useEffect(() => {
+    if (!isHomePage) {
+      setActiveSection("");
+      return;
+    }
+
     const observerOptions = {
       root: null,
       rootMargin: "-50% 0px -50% 0px", // Trigger when section crosses the middle of the screen
@@ -38,42 +46,41 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logoWrapper}>
-          <a href="#hero" className={styles.logo} onClick={closeMobileMenu}>
+          <a href={isHomePage ? "#hero" : "/#hero"} className={styles.logo} onClick={closeMobileMenu}>
             IMESH <span className={styles.logoBold}>MUNASINGHE</span>
           </a>
-          <div className={styles.tagline}>Full-Stack Developer  •  Continuous Learner  •  Problem Solver</div>
         </div>
 
         <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ""}`}>
           <a
-            href="#about"
+            href={isHomePage ? "#about" : "/#about"}
             className={`${styles.navLink} ${activeSection === "about" ? styles.activeNavLink : ""}`}
             onClick={closeMobileMenu}
           >
             About
           </a>
           <a
-            href="#work"
+            href={isHomePage ? "#work" : "/#work"}
             className={`${styles.navLink} ${activeSection === "work" ? styles.activeNavLink : ""}`}
             onClick={closeMobileMenu}
           >
-            Work
+            Projects
           </a>
           <a
-            href="#writing"
+            href={isHomePage ? "#writing" : "/#writing"}
             className={`${styles.navLink} ${activeSection === "writing" ? styles.activeNavLink : ""}`}
             onClick={closeMobileMenu}
           >
-            Writing
+            Articles
           </a>
           <a
-            href="#contact"
+            href={isHomePage ? "#contact" : "/#contact"}
             className={`${styles.navLink} ${activeSection === "contact" ? styles.activeNavLink : ""}`}
             onClick={closeMobileMenu}
           >
@@ -117,10 +124,10 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
 
       {/* Full-screen mobile nav overlay */}
       <nav className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.mobileNavOpen : ""}`}>
-        <a href="#about" className={styles.mobileNavLink} onClick={closeMobileMenu}>About</a>
-        <a href="#work" className={styles.mobileNavLink} onClick={closeMobileMenu}>Work</a>
-        <a href="#writing" className={styles.mobileNavLink} onClick={closeMobileMenu}>Writing</a>
-        <a href="#contact" className={styles.mobileNavLink} onClick={closeMobileMenu}>Contact</a>
+        <a href={isHomePage ? "#about" : "/#about"} className={styles.mobileNavLink} onClick={closeMobileMenu}>About</a>
+        <a href={isHomePage ? "#work" : "/#work"} className={styles.mobileNavLink} onClick={closeMobileMenu}>Projects</a>
+        <a href={isHomePage ? "#writing" : "/#writing"} className={styles.mobileNavLink} onClick={closeMobileMenu}>Articles</a>
+        <a href={isHomePage ? "#contact" : "/#contact"} className={styles.mobileNavLink} onClick={closeMobileMenu}>Contact</a>
       </nav>
     </header>
   );
