@@ -1,73 +1,99 @@
-# React + TypeScript + Vite
+# Imesh Munasinghe • Professional Software Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, high-performance web portfolio built using React, TypeScript, Vite, and Vanilla CSS. Designed with modern design aesthetics, clean interactive elements, dark/light theme switching, and optimized search engine indexing (SEO).
 
-Currently, two official plugins are available:
+Live Demo: [imeshmunasinghe.com](https://imeshmunasinghe.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌟 Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Pulsating Availability Badge**: Prominently shows active recruiter availability state.
+- **Dedicated Subpages**: Configured client-side routing using React Router for `/projects` and `/writing` (Articles) full directory grid views.
+- **Contextual Sticky Navigation**: Intelligent header navigation that handles direct page hashes on home page while rewriting path anchors smoothly from subpages.
+- **Categorized Tech Stack Layout**: Grid displays of skills structured across Frontend, Backend, Databases/Cloud, and Tools sections.
+- **Interactive Credentials & Certifications**: Grid cards containing live HackerRank and Udemy certificate links equipped with smooth tooltip hover overlays.
+- **Timeline Milestones**: Two-column responsive split listing personal Academic and Professional records.
+- **Dark/Light Mode**: Smooth transitions reflecting system preferences and custom toggles.
+- **SEO & Search Indexing**: Features semantic metadata parser, Open Graph preview tags, and JSON-LD structured schema.
+- **Google Analytics (GA4)**: Configured traffic tagging built directly into the site template.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technology Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Framework**: React 19.x (TypeScript)
+- **Bundler**: Vite 8.x
+- **Animation**: Framer Motion
+- **Icons**: React Icons (Remix Icons)
+- **Styling**: Vanilla CSS Modules
+- **Analytics**: Google Tag (GA4 - G-4V4ZLD195J)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Project Structure
+
+```text
+my-portfolio/
+├── public/                 # Static assets (favicons, manifest, resume)
+├── src/
+│   ├── assets/             # Images, portraits, and local graphics
+│   ├── components/         # Reusable layouts, carousels, and design modules
+│   │   ├── Certifications/ # Certificate tags
+│   │   ├── Header/         # Dynamic Navigation Bar
+│   │   ├── Hero/           # Greeting hero banner
+│   │   ├── Projects/       # Home page projects slider
+│   │   ├── Skills/         # Categorized skills matrix
+│   │   └── Timeline/       # Education & Work details
+│   ├── data/               # Unified data layers (projects.ts, posts.ts)
+│   ├── pages/              # Subpages (AllProjects.tsx, AllWriting.tsx)
+│   ├── App.tsx             # Route management
+│   ├── index.css           # Global CSS variables/tokens
+│   └── main.tsx            # Application entrypoint
+├── package.json            # Configuration and script definitions
+└── wrangler.json           # Cloudflare deployment settings
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+Ensure you have **Node.js** (v18.x or higher) and **npm** installed.
+
+### Development Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ImeshMunasinghe/my-portfolio.git
+   cd my-portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server locally:
+   ```bash
+   npm run dev
+   ```
+
+4. Build the static bundle:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## ☁️ Deployment
+
+This project is deployed to **Cloudflare** using Wrangler Worker Assets.
+
+### Deploying manually:
+```bash
+npx wrangler deploy
 ```
+
+*Note: For CI/CD automatic deployment on Git push, verify the Cloudflare page settings refer to `npm run build` as Build Command and `/dist` as the build output directory.*
