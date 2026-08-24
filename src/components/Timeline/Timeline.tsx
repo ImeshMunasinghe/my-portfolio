@@ -2,6 +2,12 @@ import { motion } from 'framer-motion';
 import { RiGraduationCapLine, RiBriefcaseLine } from 'react-icons/ri';
 import styles from './Timeline.module.css';
 
+// Import logo images
+import rvcLogo from '../../assets/rvc.jpg';
+import intecsLogo from '../../assets/intecs.jpg';
+import ieeesbLogo from '../../assets/ieeesb.jpg';
+import mhcLogo from '../../assets/mhc.jpg';
+
 interface EducationEntry {
   year: string;
   title: string;
@@ -23,12 +29,14 @@ const education: EducationEntry[] = [
     title: 'G.C.E. Advanced Level',
     institution: 'Ruhunu Vijayaba College',
     details: ['Combined Maths : A', 'Chemistry : A', 'Physics : B'],
+    logo: rvcLogo,
   },
   {
     year: '2018',
     title: 'G.C.E. Ordinary Level',
     institution: 'Ruhunu Vijayaba College',
     details: ['9 A\'s'],
+    logo: rvcLogo,
   },
 ];
 
@@ -37,18 +45,22 @@ const experience: ExperienceEntry[] = [
     period: 'Nov 2025 – Present',
     role: 'Assistant Secretary',
     organization: 'INTECS - University of Moratuwa',
+    logo: intecsLogo,
   },
   {
     period: 'Mar 2026 – Present',
     role: 'Editorial Lead & Chairperson of RiseUpMora 2026',
     organization: 'IEEE Student Branch - University of Moratuwa',
+    logo: ieeesbLogo,
   },
   {
     period: 'Mar 2026 – Present',
     role: 'Senior Editor',
     organization: 'Mora Hiking Club',
+    logo: mhcLogo,
   },
 ];
+
 
 function LogoPlaceholder({ name }: { name: string }) {
   return (
