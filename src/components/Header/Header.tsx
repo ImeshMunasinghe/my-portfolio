@@ -13,15 +13,13 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
   const [activeSection, setActiveSection] = useState("hero");
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const currentActiveSection = isHomePage ? activeSection : "";
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   useEffect(() => {
-    if (!isHomePage) {
-      setActiveSection("");
-      return;
-    }
+    if (!isHomePage) return;
 
     const observerOptions = {
       root: null,
@@ -60,28 +58,28 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
         <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ""}`}>
           <a
             href={isHomePage ? "#about" : "/#about"}
-            className={`${styles.navLink} ${activeSection === "about" ? styles.activeNavLink : ""}`}
+            className={`${styles.navLink} ${currentActiveSection === "about" ? styles.activeNavLink : ""}`}
             onClick={closeMobileMenu}
           >
             About
           </a>
           <a
             href={isHomePage ? "#work" : "/#work"}
-            className={`${styles.navLink} ${activeSection === "work" ? styles.activeNavLink : ""}`}
+            className={`${styles.navLink} ${currentActiveSection === "work" ? styles.activeNavLink : ""}`}
             onClick={closeMobileMenu}
           >
             Projects
           </a>
           <a
             href={isHomePage ? "#writing" : "/#writing"}
-            className={`${styles.navLink} ${activeSection === "writing" ? styles.activeNavLink : ""}`}
+            className={`${styles.navLink} ${currentActiveSection === "writing" ? styles.activeNavLink : ""}`}
             onClick={closeMobileMenu}
           >
             Articles
           </a>
           <a
             href={isHomePage ? "#contact" : "/#contact"}
-            className={`${styles.navLink} ${activeSection === "contact" ? styles.activeNavLink : ""}`}
+            className={`${styles.navLink} ${currentActiveSection === "contact" ? styles.activeNavLink : ""}`}
             onClick={closeMobileMenu}
           >
             Contact
