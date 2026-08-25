@@ -1,44 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
+import { motion } from 'framer-motion';
 import { projects } from '../../data/projects';
 import ProjectCard from './ProjectCard';
 import styles from './Projects.module.css';
 
 function Projects() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-            if (isHovered) return;
-            const timer = setInterval(() => {
-              setCurrentIndex((prev) => (prev + 1) % projects.length);
-            }, 3000); // Autoplay every 3 seconds
-            return () => clearInterval(timer);
-          }, [isHovered]);
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
-  };
-
-  const touchStartX = useRef(0);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const delta = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(delta) > 50) {
-      delta > 0 ? handleNext() : handlePrev();
-    }
-  };
-
   return (
     <section className={styles.section}>
       <div className={styles.header}>
@@ -46,53 +12,17 @@ function Projects() {
         <p className={styles.subtitle}>Explore some of my recent projects</p>
       </div>
 
-      <div
-        className={styles.carouselContainer}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        <button
-          className={`${styles.arrow} ${styles.arrowLeft}`}
-          onClick={handlePrev}
-          aria-label="Previous project"
-        >
-          <RiArrowLeftSLine size={28} />
-        </button>
-
-        <div className={styles.carouselViewport}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              className={styles.cardWrapper}
-            >
-              <ProjectCard project={projects[currentIndex]} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <button
-          className={`${styles.arrow} ${styles.arrowRight}`}
-          onClick={handleNext}
-          aria-label="Next project"
-        >
-          <RiArrowRightSLine size={28} />
-        </button>
-      </div>
-
-      <div className={styles.dots}>
-        {projects.map((_, idx) => (
-          <button
-            key={idx}
-            className={`${styles.dot} ${idx === currentIndex ? styles.activeDot : ''}`}
-            onClick={() => setCurrentIndex(idx)}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
+      <div className={styles.grid}>
+        {projects.slice(0, 3).map((project, idx) => (
+          <motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: idx * 0.1 }}
+            className={styles.cardWrapper}
+          >
+            <ProjectCard project={project} />
+          </motion.div>
         ))}
       </div>
 
@@ -103,4 +33,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Projects;
