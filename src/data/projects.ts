@@ -1,5 +1,8 @@
-import p1Img from '../assets/p1.png';
-import p3Img from '../assets/p3.png';
+import p1Img from '../assets/p1.jpg';
+import p2Img from '../assets/p2.jpg';
+import p3Img from '../assets/p3.jpg';
+import p4Img from '../assets/p4.jpg';
+import p5Img from '../assets/p5.jpg';
 
 export interface Project {
   title: string;
@@ -20,11 +23,11 @@ export const projects: Project[] = [
     image: p1Img,
   },
   {
-    title: 'Project Two',
-    description: 'Another project description. Keep it to two sentences max — clarity over completeness.',
-    stack: ['Python', 'FastAPI', 'PostgreSQL'],
-    href: 'https://github.com/yourusername',
-    liveHref: 'https://yourlivedemo.com',
+    title: 'Vynt',
+    description: 'A full-stack e-commerce platform for premium audio hardware featuring AI-powered catalog search, Stripe payment checkout, real-time admin analytics, and order management.',
+    stack: ['React', 'NestJS', 'Prisma', 'PostgreSQL', 'Stripe'],
+    href: 'https://github.com/ImeshMunasinghe/audio-store-fullstack',
+    image: p2Img,
   },
   {
     title: 'Personal Developer Portfolio',
@@ -33,5 +36,19 @@ export const projects: Project[] = [
     href: 'https://github.com/ImeshMunasinghe/my-portfolio',
     liveHref: '',
     image: p3Img,
+  },
+  {
+    title: 'Jump a Lot Land',
+    description: 'A custom-built 2D game engine developed in C++ using OpenGL and FreeGLUT. Features a multi-level world system, custom physics, and dynamic tile-based rendering.',
+    stack: ['C++', 'OpenGL', 'FreeGLUT'],
+    href: 'https://github.com/ImeshMunasinghe/Jump-a-Lot-Land',
+    image: p4Img,
+  },
+  {
+    title: 'AI DevOps RAG API',
+    description: 'A local Retrieval-Augmented Generation (RAG) API built with FastAPI, ChromaDB, and Ollama. Allows querying an AI model grounded in custom local text documents using semantic search.',
+    stack: ['Python', 'FastAPI', 'ChromaDB', 'Ollama'],
+    href: 'https://github.com/ImeshMunasinghe/rag-api',
+    image: p5Img,
   }
 ];
