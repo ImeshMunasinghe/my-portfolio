@@ -27,7 +27,8 @@ function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const isFormValid = name.trim() !== '' && email.trim() !== '' && message.trim() !== '';
+  const isEmailValid = email.trim().includes('@') && email.trim().split('@').length === 2 && email.trim().split('@')[1].includes('.');
+  const isFormValid = name.trim() !== '' && isEmailValid && message.trim() !== '';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
