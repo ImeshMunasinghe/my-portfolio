@@ -1,54 +1,50 @@
-import { RiGithubFill, RiExternalLinkLine, RiArrowRightUpLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
+import { RiGithubFill, RiExternalLinkLine, RiArrowRightLine } from 'react-icons/ri';
 import styles from './ProjectCard.module.css';
-
-interface Project {
-  title: string;
-  description: string;
-  stack: string[];
-  href: string;
-  liveHref?: string;
-  image?: string;
-}
+import type { Project } from '../../data/projects';
 
 interface ProjectCardProps {
   project: Project;
 }
 
 function ProjectCard({ project }: ProjectCardProps) {
-  // Use liveHref if available as primary link, otherwise GitHub link
-  const primaryHref = project.liveHref || project.href;
-
   return (
     <div className={styles.card}>
-      <a 
-        href={primaryHref} 
-        target="_blank" 
-        rel="noopener noreferrer" 
+      {/* Clicking the image navigates to the internal detail page */}
+      <Link
+        to={`/projects/${project.slug}`}
         className={styles.imageBlock}
-        aria-label={`View ${project.title}`}
+        aria-label={`View ${project.title} details`}
       >
         {project.image ? (
           <img src={project.image} alt={project.title} className={styles.image} />
         ) : (
           <div className={styles.imagePlaceholder}>
-            <span className={styles.imageText}>Image Placeholder</span>
+            <span className={styles.imageText}>{project.title}</span>
           </div>
         )}
-      </a>
-      
+        <div className={styles.imageOverlay}>
+          <span className={styles.viewLabel}>View Project</span>
+        </div>
+      </Link>
+
       <div className={styles.contentBlock}>
-        <h3 className={styles.title}>{project.title}</h3>
+        {/* Title also navigates to the detail page */}
+        <Link to={`/projects/${project.slug}`} className={styles.titleLink}>
+          <h3 className={styles.title}>{project.title}</h3>
+        </Link>
         <p className={styles.description}>{project.description}</p>
-        
+
         <div className={styles.stack}>
           {project.stack.map(tag => (
             <span key={tag} className={styles.tag}>{tag}</span>
           ))}
         </div>
       </div>
-        
+
       <div className={styles.footer}>
         <div className={styles.linksLeft}>
+          {/* Live demo — external link */}
           {project.liveHref && (
             <a
               href={project.liveHref}
@@ -56,10 +52,12 @@ function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               className={styles.iconButton}
               aria-label={`${project.title} Live Demo (opens in a new tab)`}
+              onClick={e => e.stopPropagation()}
             >
-              <RiExternalLinkLine size={18} />
+              <RiExternalLinkLine size={17} />
             </a>
           )}
+          {/* GitHub — external link */}
           {project.href && (
             <a
               href={project.href}
@@ -67,25 +65,25 @@ function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               className={styles.iconButton}
               aria-label={`${project.title} on GitHub (opens in a new tab)`}
+              onClick={e => e.stopPropagation()}
             >
-              <RiGithubFill size={18} />
+              <RiGithubFill size={17} />
             </a>
           )}
         </div>
-        
-        <a
-          href={primaryHref}
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Arrow navigates to the internal detail page */}
+        <Link
+          to={`/projects/${project.slug}`}
           className={styles.arrowButton}
-          aria-label={`Open primary link for ${project.title}`}
+          aria-label={`Read more about ${project.title}`}
         >
-          <RiArrowRightUpLine size={20} />
-        </a>
+          <RiArrowRightLine size={20} />
+        </Link>
       </div>
     </div>
   );
 }
 
 export type { Project };
-export default ProjectCard;
+export default ProjectCard;

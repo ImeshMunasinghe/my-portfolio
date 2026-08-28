@@ -24,6 +24,34 @@
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   border-bottom: 1px solid var(--color-border);
   position: relative;
+  text-decoration: none;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  backdrop-filter: blur(2px);
+}
+
+.card:hover .imageOverlay {
+  opacity: 1;
+}
+
+.viewLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 9999px;
+  padding: var(--space-2) var(--space-6);
+  background: rgba(255,255,255,0.12);
 }
 
 .image {
@@ -61,6 +89,11 @@
   flex: 1;
 }
 
+.titleLink {
+  text-decoration: none;
+  display: block;
+}
+
 .title {
   font-size: var(--text-lg);
   font-weight: 700;
@@ -72,6 +105,7 @@
   word-break: break-word;
 }
 
+.titleLink:hover .title,
 .card:hover .title {
   color: var(--color-accent);
 }
@@ -159,12 +193,13 @@
   border-radius: 50%;
   color: var(--color-text-secondary);
   transition: color var(--transition-fast), transform var(--transition-fast);
+  text-decoration: none;
 }
 
 .card:hover .arrowButton,
 .arrowButton:hover {
   color: var(--color-accent);
-  transform: translate(2px, -2px);
+  transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
