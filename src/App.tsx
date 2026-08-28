@@ -7,22 +7,36 @@ import Loader from './components/Loader/Loader';
 import Home from './pages/Home';
 import AllProjects from './pages/AllProjects';
 import AllWriting from './pages/AllWriting';
+import ProjectDetail from './pages/ProjectDetail';
 import NotFound from './pages/NotFound';
 
 type Theme = 'light' | 'dark';
+
+/* Resets scroll to top on every route change */
+function RouteScrollReset() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+  return null;
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/projects" element={<PageTransition><AllProjects /></PageTransition>} />
-        <Route path="/writing" element={<PageTransition><AllWriting /></PageTransition>} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AnimatePresence>
+    <>
+      <RouteScrollReset />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/projects" element={<PageTransition><AllProjects /></PageTransition>} />
+          <Route path="/projects/:slug" element={<PageTransition><ProjectDetail /></PageTransition>} />
+          <Route path="/writing" element={<PageTransition><AllWriting /></PageTransition>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AnimatePresence>
+    </>
   );
 }
 
