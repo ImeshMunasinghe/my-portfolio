@@ -78,8 +78,6 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 80px; /* Offset for sticky header */
 }
 
 body {
@@ -129,4 +127,10 @@ img[loading="lazy"].loaded {
 [data-theme='dark'] .theme-avatar-light {
   opacity: 0 !important;
   pointer-events: none;
+}
+
+/* Scroll-snap — applied only on the home page via .snap-page class on body */
+.snap-page {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 80px;
 }

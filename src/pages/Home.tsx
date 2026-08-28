@@ -19,6 +19,12 @@ function Home() {
   useDocumentTitle('Imesh Munasinghe');
   const [activeSection, setActiveSection] = useState('hero');
 
+  // Enable scroll-snap only on the home page
+  useEffect(() => {
+    document.documentElement.classList.add('snap-page');
+    return () => document.documentElement.classList.remove('snap-page');
+  }, []);
+
   useEffect(() => {
     const observerOptions = {
       root: null,
