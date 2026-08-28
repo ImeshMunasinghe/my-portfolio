@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
-import avatarDark from '../../assets/avaratrL.png';
+import avatarDark from '../../assets/avaratrL1.png';
 import avatarLight from '../../assets/avatartd1.png';
 
 const ROLES = [
