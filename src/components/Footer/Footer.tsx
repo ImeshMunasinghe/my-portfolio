@@ -9,7 +9,7 @@ const socials = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/ImeshMunasinghe',
+    href: 'https://www.linkedin.com/in/imeshmunasinghe/',
     icon: RiLinkedinLine,
   },
   {
