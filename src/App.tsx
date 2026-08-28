@@ -43,7 +43,7 @@ function AnimatedRoutes() {
 function App() {
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = localStorage.getItem('theme');
-    return (stored === 'light' || stored === 'dark') ? stored : 'light';
+    return (stored === 'light' || stored === 'dark') ? stored : 'dark';
   });
   const [isLoaded, setIsLoaded] = useState(false);
 
