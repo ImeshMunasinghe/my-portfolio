@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { RiSunLine, RiMoonLine, RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import styles from "./Header.module.css";
 
@@ -63,13 +63,23 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
           >
             About
           </a>
-          <a
-            href={isHomePage ? "#work" : "/#work"}
-            className={`${styles.navLink} ${currentActiveSection === "work" ? styles.activeNavLink : ""}`}
-            onClick={closeMobileMenu}
-          >
-            Projects
-          </a>
+          {isHomePage ? (
+            <a
+              href="#work"
+              className={`${styles.navLink} ${currentActiveSection === "work" ? styles.activeNavLink : ""}`}
+              onClick={closeMobileMenu}
+            >
+              Projects
+            </a>
+          ) : (
+            <Link
+              to="/projects"
+              className={styles.navLink}
+              onClick={closeMobileMenu}
+            >
+              Projects
+            </Link>
+          )}
           <a
             href={isHomePage ? "#writing" : "/#writing"}
             className={`${styles.navLink} ${currentActiveSection === "writing" ? styles.activeNavLink : ""}`}
@@ -123,7 +133,11 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
       {/* Full-screen mobile nav overlay */}
       <nav className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.mobileNavOpen : ""}`}>
         <a href={isHomePage ? "#about" : "/#about"} className={styles.mobileNavLink} onClick={closeMobileMenu}>About</a>
-        <a href={isHomePage ? "#work" : "/#work"} className={styles.mobileNavLink} onClick={closeMobileMenu}>Projects</a>
+        {isHomePage ? (
+          <a href="#work" className={styles.mobileNavLink} onClick={closeMobileMenu}>Projects</a>
+        ) : (
+          <Link to="/projects" className={styles.mobileNavLink} onClick={closeMobileMenu}>Projects</Link>
+        )}
         <a href={isHomePage ? "#writing" : "/#writing"} className={styles.mobileNavLink} onClick={closeMobileMenu}>Articles</a>
         <a href={isHomePage ? "#contact" : "/#contact"} className={styles.mobileNavLink} onClick={closeMobileMenu}>Contact</a>
       </nav>
