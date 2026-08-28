@@ -7,6 +7,7 @@ import rvcLogo from '../../assets/rvc.jpg';
 import intecsLogo from '../../assets/intecs.jpg';
 import ieeesbLogo from '../../assets/ieeesb.jpg';
 import mhcLogo from '../../assets/mhc.jpg';
+import uomLogo from '../../assets/uom.png';
 
 interface EducationEntry {
   year: string;
@@ -24,6 +25,13 @@ interface ExperienceEntry {
 }
 
 const education: EducationEntry[] = [
+  {
+    year: '2024 – PRESENT',
+    title: 'B.Sc (Hons) Information Technology',
+    institution: 'Faculty of Information Technology\nUniversity of Moratuwa',
+    details: [],
+    logo: uomLogo,
+  },
   {
     year: '2022',
     title: 'G.C.E. Advanced Level',
@@ -102,7 +110,11 @@ function Timeline() {
                     <div>
                       <div className={styles.year}>{entry.year}</div>
                       <div className={styles.cardTitle}>{entry.title}</div>
-                      <div className={styles.cardSubtitle}>{entry.institution}</div>
+                      <div className={styles.cardSubtitle}>
+                        {entry.institution.split('\n').map((line, idx) => (
+                          <div key={idx}>{line}</div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <ul className={styles.detailList}>
