@@ -6,6 +6,16 @@
   z-index: 100;
   padding: var(--space-4);
   pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.footer.visible,
+.footer:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .inner {

@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { RiGithubLine, RiMediumLine, RiMailLine, RiLinkedinLine } from 'react-icons/ri';
 import styles from './Footer.module.css';
 
@@ -25,8 +26,34 @@ const socials = [
 ];
 
 function Footer() {
+  const [isScrolling, setIsScrolling] = useState(false);
+  const timeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(true);
+
+      if (timeoutRef.current) {
+        window.clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = window.setTimeout(() => {
+        setIsScrolling(false);
+      }, 1500); // Keep visible for 1.5 seconds after scrolling stops
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutRef.current) {
+        window.clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${isScrolling ? styles.visible : styles.hidden}`}>
       <div className={styles.inner}>
         <div className={styles.copy}>
           <p>Copyright &copy; {new Date().getFullYear()} Imesh</p>
