@@ -2,7 +2,7 @@
 
 A responsive, high-performance web portfolio built using React, TypeScript, Vite, and Vanilla CSS. Designed with modern design aesthetics, clean interactive elements, dark/light theme switching, and optimized search engine indexing (SEO).
 
-Live Demo: [imeshmunasinghe.com](https://imeshmunasinghe.com)
+Live Demo: [Imesh Munasinghe](https://portfolio.imeshm.workers.dev/)
 
 ---
 
