@@ -1,8 +1,9 @@
 import p1Img from '../assets/p1.jpg';
 import p2Img from '../assets/p2.jpg';
-import p3Img from '../assets/p3.jpg';
 import p4Img from '../assets/p4.jpg';
 import p5Img from '../assets/p5.jpg';
+import p6Img from '../assets/p6.png';
+import p7Img from '../assets/p7.png';
 
 export interface ProjectSection {
   heading: string;
@@ -108,45 +109,39 @@ export const projects: Project[] = [
     image: p2Img,
   },
   {
-    slug: 'my-portfolio',
-    title: 'Personal Developer Portfolio',
-    description: 'A modern, highly interactive personal portfolio built from scratch. Features smooth micro-animations, a responsive design system, custom carousel components, SEO optimization, and Google Analytics integration.',
-    year: '2025',
-    status: 'active',
-    role: 'Solo Developer & Designer',
+    slug: 'sentinel-logger',
+    title: 'Sentinel-Logger',
+    description: 'A corporate-grade security patrol tracking and analytics system. Features live NFC scan logging, route mapping, supervisor analytics, and automated PDF audit report generation.',
+    year: '2024',
+    status: 'completed',
+    role: 'Full-Stack Developer',
     highlights: [
-      'Pulsating availability badge and smooth Framer Motion page transitions with AnimatePresence',
-      'Contextual sticky navigation with intelligent hash handling from subpages',
-      'Dark/Light mode with smooth transitions reflecting system preferences',
-      'SEO-optimized with Open Graph tags, JSON-LD structured schema, and GA4 analytics',
-      'Deployed to Cloudflare Workers with Wrangler for global CDN edge distribution',
+      'Real-time NFC checkpoint scanning via a simulated hardware wand (Python CLI).',
+      'FastAPI backend with JWT authentication, coordinate logging, and duplicate scan protection.',
+      'Next.js supervisor dashboard with live Leaflet route mapping and analytics charts.',
+      'Dynamic corporate-grade PDF audit reporting generated programmatically via ReportLab.',
     ],
     longDescription: [
       {
         heading: 'Overview',
-        body: 'A responsive, high-performance web portfolio built with React 19, TypeScript, Vite, and Vanilla CSS Modules. Designed with modern aesthetics — clean interactive elements, dark/light theme switching, Framer Motion animations, and optimized search engine indexing. Live at imeshmunasinghe.com.',
+        body: 'Sentinel-Logger is a corporate-grade, full-stack security patrol tracking and analytics system designed to verify physical patrol routes in real time. The system replaces offline logging with live NFC scan tracking, automated audits, and dynamic maps.',
       },
       {
-        heading: 'Design & Interaction',
-        body: 'Every element of this site was crafted with attention to micro-interactions and premium design. Key UX features include:\n\n• **Pulsating Availability Badge** — prominently signals active recruiter availability\n• **Smooth Page Transitions** — Framer Motion AnimatePresence wraps all route changes\n• **Contextual Sticky Navigation** — handles direct page hashes on home while rewriting path anchors from subpages\n• **Dark/Light Mode** — system preference detection + custom toggle with smooth CSS variable transitions',
+        heading: 'System Architecture',
+        body: 'The platform operates as a decoupled three-tier architecture: patrol officers use a Python CLI simulator (representing an NFC wand) to scan physical tags, which updates the FastAPI backend. Security supervisors monitor active shifts and logs via a Next.js admin dashboard.',
       },
       {
-        heading: 'Content Sections',
-        body: '• **Dedicated Subpages** — React Router routes for /projects and /writing directory grids\n• **Categorized Tech Stack** — structured Frontend, Backend, Databases/Cloud, and Tools grid\n• **Interactive Certifications** — HackerRank and Udemy certificate cards with tooltip hover overlays\n• **Timeline Milestones** — two-column responsive split for Academic and Professional history',
-      },
-      {
-        heading: 'SEO & Analytics',
-        body: 'The site implements a full SEO stack:\n\n• Semantic HTML5 metadata, Open Graph preview tags, and JSON-LD structured schema\n• Google Analytics GA4 (G-4V4ZLD195J) for real-time traffic and engagement tracking\n• Deployed to Cloudflare Workers via Wrangler for global edge CDN distribution',
+        heading: 'Key Features',
+        body: '• **Real-Time Mapping** — Chronologically renders guard patrol paths with interactive Leaflet routing lines.\n• **Audit Engine** — Instantly builds formatted PDF tables and logs for official security audits.\n• **Security & Guards** — Prevents duplicate checkpoint scans (double-tapping within 10s) and secures endpoints with HMAC-SHA256 JWT tokens.',
       },
       {
         heading: 'Tech Stack',
-        body: '**Framework:** React 19.x (TypeScript)\n**Bundler:** Vite 8.x\n**Animation:** Framer Motion\n**Icons:** React Icons (Remix Icons)\n**Styling:** Vanilla CSS Modules\n**Analytics:** Google Tag Manager (GA4)\n**Deployment:** Cloudflare Workers + Wrangler',
+        body: '**Frontend:** Next.js · React · TypeScript · React Query · React Leaflet · Tailwind CSS\n\n**Backend:** FastAPI · Uvicorn · SQLAlchemy · Pydantic · SQLite · ReportLab\n\n**Simulator:** Python · Requests',
       },
     ],
-    stack: ['React', 'TypeScript', 'Vite', 'Framer Motion', 'Cloudflare'],
-    href: 'https://github.com/ImeshMunasinghe/my-portfolio',
-    liveHref: 'https://imeshmunasinghe.com',
-    image: p3Img,
+    stack: ['Next.js', 'FastAPI', 'SQLite', 'ReportLab', 'Tailwind CSS'],
+    href: 'https://github.com/ImeshMunasinghe/Sentinel-Logger',
+    image: p6Img,
   },
   {
     slug: 'jump-a-lot-land',
@@ -224,5 +219,41 @@ export const projects: Project[] = [
     stack: ['Python', 'FastAPI', 'ChromaDB', 'Ollama'],
     href: 'https://github.com/ImeshMunasinghe/rag-api',
     image: p5Img,
+  },
+  {
+    slug: 'certificate-automation',
+    title: 'Certificate Automation Platform',
+    description: 'A secure digital credentialing platform for dynamic certificate template design, bulk generation, Google Drive cloud storage, and cryptographic authenticity verification.',
+    year: '2024',
+    status: 'completed',
+    role: 'Full-Stack Developer',
+    highlights: [
+      'Visual drag-and-drop template designer for dynamic, resolution-independent layouts.',
+      'Automated bulk processing engine supporting CSV imports and ZIP/PDF generation.',
+      'RSA-2048 and SHA-256 cryptographic signing for tamper-proof digital verification.',
+      'Multi-modal verification interface (UUID, PDF hash, and raw signature validation).',
+      'OAuth2 Google Drive integration for automated certificate upload and sharing.',
+    ],
+    longDescription: [
+      {
+        heading: 'Overview',
+        body: 'This platform is an enterprise-grade credentialing solution that simplifies creation, distribution, and verification of digital certificates. It integrates public-key cryptography and cloud storage to ensure credentials are tamper-proof and easily auditable.',
+      },
+      {
+        heading: 'Dynamic Designer & Automated Engine',
+        body: 'Features a responsive drag-and-drop template builder for placing recipient details, custom fonts, and verification QR codes. Organizations can generate thousands of unique PDF/PNG certificates in batches by uploading a recipient list in CSV/Excel format.',
+      },
+      {
+        heading: 'Security & Cryptography',
+        body: 'Protects authenticity using RSA-2048 digital signatures and SHA-256 hashing. It also enforces production-level security controls, including OS-level key permissions (restricted to owner), in-memory API rate limiting, and CSV formula injection protection.',
+      },
+      {
+        heading: 'Multi-Modal Verification',
+        body: 'Supports three methods of validation: deterministic UUID lookup, direct PDF file upload matching SHA-256 hashes, and raw RSA cryptographic signature validation using the public key.',
+      },
+    ],
+    stack: ['Next.js', 'React', 'FastAPI', 'SQLite', 'Tailwind CSS'],
+    href: 'https://github.com/ImeshMunasinghe/Certificate-Automation-Platform',
+    image: p7Img,
   },
 ];
